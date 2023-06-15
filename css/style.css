@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;600;700;900&display=swap");
+
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* ======== Página index ======= */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header .title {
+  display: flex;
+  justify-content: space-evenly;
+  padding: .8rem 0;
+  background: rgb(247, 181, 96);
+}
+
+.icono {
+  width: 2rem;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#amount {
+  background: rgb(248, 206, 206);
+  padding: .2rem;
+  border-radius: 5px;
+  color: rgb(5, 129, 61);
+}
+
+.navbar {
+  --bs-navbar-padding-y: 0;
+  margin-bottom: 1rem;
+}
+
+.nav-link.active {
+  background: white;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: .8rem;
+}
+
+
+.containerProducts {
+  margin-top: 9rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 10px;
+}
+
+.product {
+  border: 1px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  height: 29rem;
+}
+
+.imgProduct {
+  height: 55%;
+}
+
+.content {
+  height: 45%;
+  padding: .2rem .1rem;
+}
+
+.content h2 {
+  font-size: 1.3rem;
+}
+
+
+
+/* ======== Página cart ======== */
+.productCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: wheat;
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+
+.img {
+  width: 2.5rem;
+}
+
+.btnDelete {
+  cursor: pointer;
+}
+
+.cartActions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.disabled {
+  display: none;
+}
+
+.keepBuying div {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

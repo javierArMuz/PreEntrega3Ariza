@@ -1,114 +1,102 @@
 
 class Products {
-  constructor(name, price, stock) {
-    this.name = name,
+  constructor(id, title, image, price, idcateg) {
+    this.id = id,
+      this.title = title,
+      this.image = image,
       this.price = price,
-      this.stock = stock
-  }
-
-  update_stock(unit) {
-    this.stock -= unit
-  }
-
-  get_data() {
-    console.log('===================');
-    console.log('Nombre: ', this.name);
-    console.log('Precio: $', this.price);
-    console.log('Stock: ', this.stock);
+      this.category = { id: idcateg }
   }
 }
 
 let products_list = [];
 
-products_list.push(new Products('Piano', 800000, 2));
-products_list.push(new Products('Guitarra', 600000, 2));
-products_list.push(new Products('Bajo', 900000, 1));
-products_list.push(new Products('Batería', 1300000, 0));
-products_list.push(new Products('Micrófono', 600000, 5));
+products_list.push(new Products('piano_1', 'Piano Yamaha PSR E473', 'https://belmusic.com.co/wp-content/uploads/2022/05/Yamaha-PSR-E473-imagen-1.jpg', 1600000, 'piano'));
+products_list.push(new Products('piano_2', 'Teclado Casio CT-X700', 'https://www.pianosbogota.com/wp-content/uploads/2018/06/CASIO-CT-X700-bogota%CC%81-colombia.png', 1125000, 'piano'));
+products_list.push(new Products('guitar_1', 'Guitarra electroacustica de nylon sdc', 'https://image.cdn1.buscalibre.com/3549458.__RS360x360__.jpg', 1500000, 'guitar'));
+products_list.push(new Products('guitar_2', 'Guitarra eléctrica Yamaha PAC 112', 'https://tutempo.com.co/wp-content/uploads/2020/04/Yamaha-PAC-112-diag.png', 1200000, 'guitar'));
+products_list.push(new Products('bass_1', 'Bajo electrico milestone 5 cuerdas Negro Peavey', 'https://tecnicalmusic.com/wp-content/uploads/2021/02/Bajo-Electrico-Milestone-5-cuerdas-Negro-Peavey.jpg', 1300000, 'bass'));
+products_list.push(new Products('bass_2', ' Bajo eléctrico Ibanez 6 cuerdas GSR206B-WNF', 'https://duosonic.co/wp-content/uploads/2022/10/BAJO-ELECTRICO-6-CUERDAS-IBANEZ-GSR206B-WNF-Duosonic-Bogota.webp', 1400000, 'bass'));
+products_list.push(new Products('drums_1', 'Batería acústica Yamaha RDP2F5 (5 Piezas)', 'https://belmusic.com.co/wp-content/uploads/2019/03/RDP2f5-imagen-1.jpg', 600000, 'drums'));
+products_list.push(new Products('drums_2', 'Batería Electrónica CARLSBRO ROCK 50', 'https://www.pianosbogota.com/wp-content/uploads/2020/11/MODULO-BATERIA-ELECTRONICA-CARLSBRO-ROCK-50-002.jpg', 700000, 'drums'));
+products_list.push(new Products('microphone_1', 'Micrófono Shure SM58-LC', 'https://cdn.shopify.com/s/files/1/0269/4178/4117/products/MIC014_800x800.png?v=1576616415', 600000, 'microphone'));
+products_list.push(new Products('microphone_2', 'Micrófono Condensador K440BLACK Vento', 'https://www.sonomarcas.com/wp-content/uploads/2021/05/Microfono-de-condensador-Vento-K440.jpg', 650000, 'microphone'));
 
-// Mostramos por consola la lista de cada instrumentos
-console.log('=======================');
-console.log('LISTA DE INSTRUMENTOS');
-function show_list() {
-  for (const product of products_list) {
-    product.get_data()
-  }
+
+let containerProducts = document.querySelector('#containerProducts');
+let categories = document.querySelectorAll('.categories');
+let addCart;
+let amountInCart = document.querySelector('#amount')
+let deleteProduct;
+
+// Cargamos los productos
+function loadProducts(chooseProduct) {
+  containerProducts.innerHTML = ''
+  chooseProduct.forEach(product => {
+    const article = document.createElement('article');
+    article.classList.add('product');
+    article.innerHTML = `
+    <div class="imgProduct">
+      <img src="${product.image}" alt="${product.title}">
+    </div>
+    <div class="content">
+      <h2>${product.title}</h2>
+      <p>$${product.price}</p>
+      <button class="btn btn-secondary addCart" id="${product.id}">Agregar</button>
+    </div>`
+    containerProducts.append(article);
+  })
+  updateProducts()
 }
-show_list();
+loadProducts(products_list)
 
-// Capitalizamos la primera letra y el resto con minúscula
-function capitalizarPrimerLetra(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-}
+// Los categorizamos por instrumento
+categories.forEach(category => {
+  category.addEventListener('click', (e) => {
+    categories.forEach(category => category.classList.remove('active'))
+    e.target.classList.add('active')
 
-// Agregamos en este array cada producto adquirido
-let carrito = [];
-
-let name_product = '';
-
-
-while (name_product != null) {
-
-  name_product = prompt(`Bienvenido/a a la Casa de Instrumentos Musicales.
-  ¿Qué instrumento desea adquirir?`);
-
-  if (name_product == null) {
-    alert('Gracias por su visita')
-    break;
-  }
-
-  name_product = capitalizarPrimerLetra(name_product);
-
-  // Utilizando el método find() buscamos el producto en la lista de productos
-  result_serch = products_list.find(product => product.name == name_product);
-
-  if (result_serch != undefined && result_serch.stock > 0) {
-    let unity = prompt(`${result_serch.name} tiene un valor de $${result_serch.price}.
-        En el momento contamos con ${result_serch.stock} ${(result_serch.stock > 1) ? 'unidades' : 'unidad'}.
-        ¿Cuántas unidades desea adquirir?
-        (Ingrese la cantidad en números)`);
-    if (unity <= result_serch.stock) {
-      result_serch.update_stock(unity)
-
-      // Actualización de la lista de productos
-      console.log('=======================');
-      console.log('LISTA ACTUALIZADA DE INSTRUMENTOS');
-      show_list();
-      let res = result_serch.price * unity;
-
-      // Depositamos los productos adquiridos en el carrito
-      carrito.push(new Products(result_serch.name, res, unity));
-      let confirm = prompt(`Ha adquirido:
-         ${unity} ${result_serch.name} por valor de $${res}.
-          ¿Desea adquirir algo más?
-          Ingrese número:
-          1 - Si
-          2 - No`);
-      if (confirm == 1) {
-        continue;
-      } else {
-        // Utilizando el método reduce() sumamos el precio de los productos depositados en el carrito
-        let total_result = carrito.reduce((acc, product) => acc += product.price, 0);
-        alert(`Detalle de compra:
-        El valor total de su compra fue $${total_result}.
-        Gracias por su adquisición`);
-
-        // Detallamos la compra
-        console.log('===================');
-        console.log('Detalle de compra:');
-        for (const product of carrito) {
-          console.log(`${product.stock} ${product.name} $${product.price}`)
-        }
-        console.log(`Valor total: ${total_result}`);
-        break;
-      }
+    if (e.target.id != 'all') {
+      const chooseCategory = products_list.filter(product => product.category.id == e.target.id)
+      loadProducts(chooseCategory)
     } else {
-      alert(`En este momento solo contamos con ${result_serch.stock} ${(result_serch.stock > 1) ? 'unidades' : 'unidad'}`);
+      loadProducts(products_list)
     }
+  })
+})
 
-  } else if (result_serch != undefined && result_serch.stock <= 0) {
-    alert('Lo sentimos, en el momento está agotado');
-  } else {
-    alert('Producto no encontrado o inténtelo de nuevo');
-  }
+let putCart;
+let productCartLocalS = localStorage.getItem('products_in_cart')
+if (productCartLocalS) {
+  putCart = JSON.parse(productCartLocalS)
+  updateAmount();
+} else {
+  putCart = [];
+}
+
+// Actualizamos los productos
+function updateProducts() {
+  addCart = document.querySelectorAll('.addCart')
+
+  addCart.forEach(product => {
+    product.addEventListener('click', (e) => {
+      let idProduct = e.target.id;
+      let addProduct = products_list.find(product => product.id == idProduct)
+
+      if (putCart.some(product => product.id == idProduct)) {
+        addProduct.amount++;
+      } else {
+        addProduct.amount = 1;
+        putCart.push(addProduct)
+      }
+      updateAmount();
+      localStorage.setItem('products_in_cart', JSON.stringify(putCart))
+    })
+  })
+}
+
+// Actualizamos en número del carrito
+function updateAmount() {
+  let amount = putCart.reduce((acu, product) => acu + product.amount, 0);
+  amountInCart.innerText = amount;
 }
