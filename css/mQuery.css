@@ -1,0 +1,48 @@
+@media (width > 992px) {
+  .navbar {
+    --bs-navbar-padding-x: none;
+  }
+}
+
+@media (width < 620px) {
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .productCart .img {
+    display: none;
+  }
+
+  .productCart p,
+  .cartActions p {
+    font-size: .8rem;
+  }
+}
+
+@media (width < 520px) {
+  .icono {
+    margin: .6rem;
+  }
+
+  h1 {
+    font-size: 1.1rem;
+  }
+
+  .cart {
+    margin: 0 1rem 0 .6rem;
+  }
+
+  .main-cart button,
+  .containerCart p {
+    font-size: .8rem;
+  }
+}
+
+@media (width < 320px) {
+
+  .main-cart button,
+  .productCart p {
+    font-size: .6rem;
+  }
+}

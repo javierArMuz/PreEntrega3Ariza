@@ -1,0 +1,38 @@
+.productCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bgTitleStripLight);
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+
+.productCart small {
+  font-weight: bold;
+}
+
+.productCart p {
+  margin: 0;
+}
+
+.img {
+  width: 2.5rem;
+}
+
+.lessAmount,
+.moreAmount {
+  cursor: pointer;
+}
+
+.btnDelete {
+  cursor: pointer;
+}
+
+.cartActions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.disabled {
+  display: none;
+}

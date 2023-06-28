@@ -1,0 +1,26 @@
+:root {
+  --bgTitleStripDark: rgb(245, 180, 40);
+  --bgTitleStripLight: rgba(248, 218, 45, 0.918);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+body {
+  min-width: 299px;
+}

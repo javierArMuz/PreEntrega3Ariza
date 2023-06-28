@@ -3,34 +3,36 @@ let productsInCart = JSON.parse(localStorage.getItem('products_in_cart'));
 let emptyCart = document.querySelector('#emptyCart');
 let productsCart = document.querySelector('#productsCart');
 let cartActions = document.querySelector('#cartActions');
-let boughtProduct = document.querySelector('#boughtProduct');
 let cleanCart = document.querySelector('.cleanCart');
 let total = document.querySelector('#total');
 let buyProducts = document.querySelector('#buyProducts');
+let calculateTotal;
 
 
 function loadCart() {
-
   if (productsInCart && productsInCart.length > 0) {
-    productsCart.classList.remove('disabled')
-    cartActions.classList.remove('disabled')
-
+    emptyCart.classList.add('disabled');
     productsInCart.innerHTML = '';
 
     productsInCart.forEach(product => {
       const div = document.createElement('div')
       div.classList.add('productCart')
       div.innerHTML = `
-    <div class="img">
+      <div class="img">
         <img src="${product.image}" alt="producto">
       </div>
       <div>
         <small>Titulo</small>
         <p>${product.title}</p>
+        <p>${product.ref}</p>
       </div>
       <div>
         <small>Cant.</small>
-        <p class='text-center'>${product.amount}</p>
+        <p class='text-center'>
+          <i id="${product.id}" class="bi bi-file-minus lessAmount"></i>
+          ${product.amount}
+          <i id="${product.id}" class="bi bi-file-plus moreAmount"></i>
+        </p>
       </div>
       <div>
         <small>Precio</small>
@@ -46,24 +48,24 @@ function loadCart() {
       productsCart.append(div)
     });
   } else {
-    emptyCart.classList.remove('disabled');
-    productsCart.classList.add('disabled');
     cartActions.classList.add('disabled');
+    productsCart.classList.add('disabled');
+    emptyCart.classList.remove('disabled');
   }
   deleteProd();
   updateTotal();
+  amountProd();
 }
 loadCart();
 
 // Eliminando producto del carrito
 function deleteProd() {
-  deleteProduct = document.querySelectorAll('.btnDelete');
+  let deleteProduct = document.querySelectorAll('.btnDelete');
   deleteProduct.forEach(button => {
     button.addEventListener('click', (e) => {
       const idButton = e.target.id;
       const index = productsInCart.findIndex(product => product.id == idButton)
       productsInCart.splice(index, 1)
-      loadCart()
       localStorage.setItem('products_in_cart', JSON.stringify(productsInCart));
     })
   })
@@ -77,23 +79,93 @@ btnKeepBuying.addEventListener('click', () => {
 
 // Limpiar el carrito
 cleanCart.addEventListener('click', () => {
-  productsInCart.length = 0;
-  localStorage.setItem('products_in_cart', JSON.stringify(productsInCart));
-  loadCart()
+  // Librería sweetAlert2
+  Swal.fire({
+    title: 'Está seguro?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, vaciar carrito!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: 'Carrito vacío!',
+        text: 'Se han eliminado todos los productos del carrito.',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 2500
+      })
+      productsInCart.length = 0;
+      localStorage.setItem('products_in_cart', JSON.stringify(productsInCart));
+      loadCart();
+    }
+  })
 })
 
 // Actualizando el valor total
 function updateTotal() {
-  const calculateTotal = productsInCart.reduce((acu, product) => acu + (product.price * product.amount), 0);
+  calculateTotal = productsInCart.reduce((acu, product) => acu + (product.price * product.amount), 0);
   total.innerText = `$${calculateTotal}`
 }
 
 // Comprando los productos
 buyProducts.addEventListener('click', () => {
-  productsInCart.length = 0;
-  localStorage.setItem('products_in_cart', JSON.stringify(productsInCart));
-  emptyCart.classList.add('disabled');
-  productsCart.classList.add('disabled');
-  cartActions.classList.add('disabled');
-  boughtProduct.classList.remove('disabled');
+  if (calculateTotal > 0) {
+    productsInCart.length = 0;
+    localStorage.setItem('products_in_cart', JSON.stringify(productsInCart));
+    // Librería sweetAlert2
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Compra exitosa!',
+      text: 'Muchas gracias por su confianza!',
+      showConfirmButton: false,
+      timer: 2500
+    })
+    emptyCart.classList.add('disabled');
+    productsCart.classList.add('disabled');
+    cartActions.classList.add('disabled');
+  } else {
+    // Librería sweetAlert2
+    Swal.fire({
+      icon: 'error',
+      title: 'Compra no realizada',
+      text: 'Le sugerimos añadir productos al carrito'
+    })
+  }
 })
+
+// Botones para incrementar o disminuir la cantidad del mismo producto
+function amountProd() {
+  let lessAmount = document.querySelectorAll('.lessAmount');
+  let moreAmount = document.querySelectorAll('.moreAmount');
+  function updateCart() {
+    localStorage.setItem('products_in_cart', JSON.stringify(productsInCart));
+    location.reload();
+  }
+  if (lessAmount) {
+    lessAmount.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const idButtonLess = e.target.id;
+        const index = productsInCart.findIndex(product => product.id == idButtonLess)
+        if (productsInCart[index].amount > 0) {
+          productsInCart[index].amount--;
+          updateCart();
+        }
+      })
+    })
+  } if (moreAmount) {
+    moreAmount.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const idButtonMore = e.target.id;
+        const index = productsInCart.findIndex(product => product.id == idButtonMore)
+        if (productsInCart[index].amount < productsInCart[index].stock) {
+          productsInCart[index].amount++;
+          updateCart();
+        }
+      })
+    })
+  }
+}
+

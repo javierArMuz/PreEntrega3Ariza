@@ -1,0 +1,178 @@
+[
+  {
+    "id": "piano_1",
+    "title": "Piano Yamaha",
+    "ref": "PSR E473",
+    "image": "https://belmusic.com.co/wp-content/uploads/2022/05/Yamaha-PSR-E473-imagen-1.jpg",
+    "price": 1600000,
+    "stock": 3,
+    "category": {
+      "id": "piano"
+    }
+  },
+  {
+    "id": "piano_2",
+    "title": "Teclado Casio",
+    "ref": "CT-X700",
+    "image": "https://www.pianosbogota.com/wp-content/uploads/2018/06/CASIO-CT-X700-bogota%CC%81-colombia.png",
+    "price": 1125000,
+    "stock": 6,
+    "category": {
+      "id": "piano"
+    }
+  },
+  {
+    "id": "piano_3",
+    "title": "Piano D Roland",
+    "ref": "FP-30X",
+    "image": "https://www.pianosbogota.com/wp-content/uploads/2020/02/PIANO-DIGITAL-ROLAND-FP-30-bogota.jpg",
+    "price": 4550000,
+    "stock": 3,
+    "category": {
+      "id": "piano"
+    }
+  },
+  {
+    "id": "guitar_1",
+    "title": "Guitarra electroacustica",
+    "ref": "de nylon sdc",
+    "image": "https://image.cdn1.buscalibre.com/3549458.__RS360x360__.jpg",
+    "price": 1500000,
+    "stock": 6,
+    "category": {
+      "id": "guitar"
+    }
+  },
+  {
+    "id": "guitar_2",
+    "title": "Guitarra eléctrica",
+    "ref": "Yamaha PAC 112",
+    "image": "https://tutempo.com.co/wp-content/uploads/2020/04/Yamaha-PAC-112-diag.png",
+    "price": 1200000,
+    "stock": 6,
+    "category": {
+      "id": "guitar"
+    }
+  },
+  {
+    "id": "guitar_3",
+    "title": "Guitarra Acústica",
+    "ref": "Epiphone Ppag",
+    "image": "https://cdn.shopify.com/s/files/1/0512/9116/0767/products/static.gibson.com_product-images_Epiphone_EPIX2D662_Natural_500-500.png?v=1667588171",
+    "price": 850000,
+    "stock": 4,
+    "category": {
+      "id": "guitar"
+    }
+  },
+  {
+    "id": "bass_1",
+    "title": "Bajo electrico milestone",
+    "ref": "5 cuerdas Negro Peavey",
+    "image": "https://tecnicalmusic.com/wp-content/uploads/2021/02/Bajo-Electrico-Milestone-5-cuerdas-Negro-Peavey.jpg",
+    "price": 1300000,
+    "stock": 3,
+    "category": {
+      "id": "bass"
+    }
+  },
+  {
+    "id": "bass_2",
+    "title": "Bajo eléctrico Ibanez",
+    "ref": "6 cuerdas GSR206B-WNF",
+    "image": "https://duosonic.co/wp-content/uploads/2022/10/BAJO-ELECTRICO-6-CUERDAS-IBANEZ-GSR206B-WNF-Duosonic-Bogota.webp",
+    "price": 1400000,
+    "stock": 3,
+    "category": {
+      "id": "bass"
+    }
+  },
+  {
+    "id": "drums_1",
+    "title": "Batería acústica Yamaha",
+    "ref": "RDP2F5 (5 Piezas)",
+    "image": "https://belmusic.com.co/wp-content/uploads/2019/03/RDP2f5-imagen-1.jpg",
+    "price": 600000,
+    "stock": 2,
+    "category": {
+      "id": "drums"
+    }
+  },
+  {
+    "id": "drums_2",
+    "title": "Batería Electrónica",
+    "ref": "CARLSBRO ROCK 50",
+    "image": "https://www.pianosbogota.com/wp-content/uploads/2020/11/MODULO-BATERIA-ELECTRONICA-CARLSBRO-ROCK-50-002.jpg",
+    "price": 700000,
+    "stock": 2,
+    "category": {
+      "id": "drums"
+    }
+  },
+  {
+    "id": "saxophone_1",
+    "title": "Saxofón Tenor",
+    "ref": "Conn tS651DIR",
+    "image": "https://cdn.shopify.com/s/files/1/2235/9983/products/VG4942_-_SAXOFON_TENOR_TS651_-_FRONTAL_copia_960x.jpg?v=1501976099",
+    "price": 5935900,
+    "stock": 4,
+    "category": {
+      "id": "saxophone"
+    }
+  },
+  {
+    "id": "saxophone_2",
+    "title": "Saxo Alto",
+    "ref": "J.Michael 800 B",
+    "image": "https://www.instrumentomania.com/4851-large_default/saxo-alto-jmichael-800-b.jpg",
+    "price": 6500000,
+    "stock": 4,
+    "category": {
+      "id": "saxophone"
+    }
+  },
+  {
+    "id": "microphone_1",
+    "title": "Micrófono Shure",
+    "ref": "SM58-LC",
+    "image": "https://cdn.shopify.com/s/files/1/0269/4178/4117/products/MIC014_800x800.png?v=1576616415",
+    "price": 600000,
+    "stock": 7,
+    "category": {
+      "id": "microphone"
+    }
+  },
+  {
+    "id": "microphone_2",
+    "title": "Micrófono Condensador",
+    "ref": "K440BLACK Vento",
+    "image": "https://www.sonomarcas.com/wp-content/uploads/2021/05/Microfono-de-condensador-Vento-K440.jpg",
+    "price": 650000,
+    "stock": 7,
+    "category": {
+      "id": "microphone"
+    }
+  },
+  {
+    "id": "soundboard_1",
+    "title": "Consola Pasiva",
+    "ref": "Gemini 12 C",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_711111-MLV49871976528_052022-O.webp",
+    "price": 490000,
+    "stock": 3,
+    "category": {
+      "id": "soundboard"
+    }
+  },
+  {
+    "id": "soundboard_2",
+    "title": "Consola Ital",
+    "ref": "DJ 8FX Pasiva",
+    "image": "https://centrodelsonido.net/wp-content/uploads/2022/03/consola-analoga-prodj-8fx1.jpg",
+    "price": 970000,
+    "stock": 2,
+    "category": {
+      "id": "soundboard"
+    }
+  }
+]
