@@ -7,7 +7,8 @@
     "price": 1600000,
     "stock": 3,
     "category": {
-      "id": "piano"
+      "id": "piano",
+      "name": "Pianos"
     }
   },
   {
@@ -18,7 +19,8 @@
     "price": 1125000,
     "stock": 6,
     "category": {
-      "id": "piano"
+      "id": "piano",
+      "name": "Pianos"
     }
   },
   {
@@ -29,7 +31,8 @@
     "price": 4550000,
     "stock": 3,
     "category": {
-      "id": "piano"
+      "id": "piano",
+      "name": "Pianos"
     }
   },
   {
@@ -40,7 +43,8 @@
     "price": 1500000,
     "stock": 6,
     "category": {
-      "id": "guitar"
+      "id": "guitar",
+      "name": "Guitarras"
     }
   },
   {
@@ -51,7 +55,8 @@
     "price": 1200000,
     "stock": 6,
     "category": {
-      "id": "guitar"
+      "id": "guitar",
+      "name": "Guitarras"
     }
   },
   {
@@ -62,7 +67,8 @@
     "price": 850000,
     "stock": 4,
     "category": {
-      "id": "guitar"
+      "id": "guitar",
+      "name": "Guitarras"
     }
   },
   {
@@ -73,7 +79,8 @@
     "price": 1300000,
     "stock": 3,
     "category": {
-      "id": "bass"
+      "id": "bass",
+      "name": "Bajos"
     }
   },
   {
@@ -84,7 +91,8 @@
     "price": 1400000,
     "stock": 3,
     "category": {
-      "id": "bass"
+      "id": "bass",
+      "name": "Bajos"
     }
   },
   {
@@ -95,7 +103,8 @@
     "price": 600000,
     "stock": 2,
     "category": {
-      "id": "drums"
+      "id": "drums",
+      "name": "Baterías"
     }
   },
   {
@@ -106,7 +115,8 @@
     "price": 700000,
     "stock": 2,
     "category": {
-      "id": "drums"
+      "id": "drums",
+      "name": "Baterías"
     }
   },
   {
@@ -117,7 +127,8 @@
     "price": 5935900,
     "stock": 4,
     "category": {
-      "id": "saxophone"
+      "id": "saxophone",
+      "name": "Saxofónes"
     }
   },
   {
@@ -128,7 +139,8 @@
     "price": 6500000,
     "stock": 4,
     "category": {
-      "id": "saxophone"
+      "id": "saxophone",
+      "name": "Saxofónes"
     }
   },
   {
@@ -139,7 +151,8 @@
     "price": 600000,
     "stock": 7,
     "category": {
-      "id": "microphone"
+      "id": "microphone",
+      "name": "Micrófonos"
     }
   },
   {
@@ -150,7 +163,8 @@
     "price": 650000,
     "stock": 7,
     "category": {
-      "id": "microphone"
+      "id": "microphone",
+      "name": "Micrófonos"
     }
   },
   {
@@ -161,7 +175,8 @@
     "price": 490000,
     "stock": 3,
     "category": {
-      "id": "soundboard"
+      "id": "soundboard",
+      "name": "Consolas"
     }
   },
   {
@@ -172,7 +187,8 @@
     "price": 970000,
     "stock": 2,
     "category": {
-      "id": "soundboard"
+      "id": "soundboard",
+      "name": "Consolas"
     }
   }
 ]

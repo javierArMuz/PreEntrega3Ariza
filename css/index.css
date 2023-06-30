@@ -19,7 +19,7 @@ header {
 }
 
 .title {
-  text-align: center;
+  font-weight: bold;
 }
 
 .cart {
@@ -134,8 +134,11 @@ header {
 }
 
 /* ========= Contenido ========= */
-.containerProducts {
+.main_index {
   margin-top: 9rem;
+}
+
+.containerProducts {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   gap: 10px;

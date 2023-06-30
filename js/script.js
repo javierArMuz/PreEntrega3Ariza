@@ -1,6 +1,9 @@
 let containerProducts = document.querySelector('#containerProducts');
 let categories = document.querySelectorAll('.categories');
 let amountInCart = document.querySelector('#amount');
+let navbarNav = document.querySelector('#navbarNav');
+let navbar_toggler = document.querySelector('.navbar-toggler');
+let nameProd = document.querySelector('.nameProd');
 let addCart;
 
 // Capturamos todos los productos desde products.json
@@ -49,10 +52,14 @@ function categoriesFunc(products_cat) {
       e.target.classList.add('active')
       if (e.target.id != 'all') {
         const chooseCategory = products_cat.filter(product => product.category.id == e.target.id)
-        loadProducts(chooseCategory)
+        loadProducts(chooseCategory);
+        nameProd.innerText = chooseCategory[0].category.name;
       } else {
-        loadProducts(products_cat)
+        loadProducts(products_cat);
+        nameProd.innerText = 'Todos los Productos';
       }
+      navbarNav.classList.remove('show');
+      navbar_toggler.classList.add('collapsed');
     })
   })
 };

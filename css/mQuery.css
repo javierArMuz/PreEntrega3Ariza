@@ -2,6 +2,10 @@
   .navbar {
     --bs-navbar-padding-x: none;
   }
+
+  .nameProd {
+    display: none;
+  }
 }
 
 @media (width < 620px) {

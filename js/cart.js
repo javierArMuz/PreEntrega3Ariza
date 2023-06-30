@@ -22,16 +22,16 @@ function loadCart() {
         <img src="${product.image}" alt="producto">
       </div>
       <div>
-        <small>Titulo</small>
+        <small>Producto</small>
         <p>${product.title}</p>
         <p>${product.ref}</p>
       </div>
       <div>
         <small>Cant.</small>
         <p class='text-center'>
-          <i id="${product.id}" class="bi bi-file-minus lessAmount"></i>
+          <i title="Disminuir" id="${product.id}" class="bi bi-dash lessAmount"></i>
           ${product.amount}
-          <i id="${product.id}" class="bi bi-file-plus moreAmount"></i>
+          <i title="Aumentar" id="${product.id}" class="bi bi-plus moreAmount"></i>
         </p>
       </div>
       <div>
